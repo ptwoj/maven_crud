@@ -3,6 +3,44 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="Member">
+    <insert id = "save" parameterType = "member">
+        INSERT INTO member_table(memberEmail, memberPassword, memberName, memberAge, memberMobile)
+        VALUES (#{memberEmail}, #{memberPassword}, #{memberName}, #{memberAge}, #{memberMobile})
+    </insert>
 
+    <select id = "login" parameterType = "member" resultType = "member">
+        SELECT *
+        FROM member_table
+        WHERE memberEmail = #{memberEmail} and memberPassword = #{memberPassword}
+    </select>
+
+    <select id = "findAll" resultType = "member">
+        SELECT *
+        FROM  member_table
+    </select>
+
+    <select id = "findById" parameterType = "Long" resultType = "member">
+        SELECT *
+        FROM member_table
+        WHERE id = #{id}
+    </select>
+
+    <delete id = "delete" parameterType = "Long">
+        DELETE
+        FROM member_table
+        WHERE id = #{id}
+    </delete>
+
+    <select id= "findByMemberEmail" parameterType = "String" resultType = "member">
+        SELECT *
+        FROM member_table
+        WHERE memberEmail = #{loginEmail}
+    </select>
+
+    <update id = "update" parameterType = "member">
+        UPDATE member_table
+        SET memberAge = #{memberAge}, memberMobile = #{memberMobile}
+        WHERE id = #{id}
+    </update>
 </mapper>
 
