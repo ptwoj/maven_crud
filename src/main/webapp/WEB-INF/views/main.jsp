@@ -8,6 +8,9 @@
 <button onclick="update()">내 정보 수정하기</button>
 <button onclick="logout()">로그 아웃</button>
 
+<a href = "/board/save">글 작성</a>
+<a href = "/board/">글 작성</a>
+
 </body>
 <script>
     const update = () => {

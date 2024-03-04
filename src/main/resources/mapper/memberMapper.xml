@@ -42,5 +42,13 @@
         SET memberAge = #{memberAge}, memberMobile = #{memberMobile}
         WHERE id = #{id}
     </update>
+
+
+
+
+    <insert id= "save" parameterType = "board">
+        INSERT INTO board_table(boardWriter, boardPass, boardTitle, boardContents)
+        VALUES(#{boardWriter}, #{boardPass}, #{boardTitle}, #{boardContents})
+    </insert>
 </mapper>
 
