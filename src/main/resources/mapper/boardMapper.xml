@@ -20,4 +20,10 @@
         FROM board_table
         WHERE id = #{id}
     </select>
+
+    <update id = "updateHits" parameterType = "Long">
+        UPDATE board_table
+        SET boardHits = boardHits + 1
+        WHERE id = #{id}
+    </update>
 </mapper>
