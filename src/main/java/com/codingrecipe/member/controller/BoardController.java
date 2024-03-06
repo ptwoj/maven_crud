@@ -23,7 +23,7 @@ public class BoardController {
     public String save(@ModelAttribute BoardDto boardDto) {
         int saveResult = boardService.save(boardDto);
         if (saveResult > 0) {
-            return "redirect:/board";
+            return "redirect:/boardSave";
         } else {
             return "boardSave";
         }
@@ -33,7 +33,7 @@ public class BoardController {
     public String boardFindAll(Model model) {
         List<BoardDto> boardDtoList = boardService.boardFindAll();
         model.addAttribute("boardList", boardDtoList);
-        return "list";
+        return "boardList";
     }
 
 }

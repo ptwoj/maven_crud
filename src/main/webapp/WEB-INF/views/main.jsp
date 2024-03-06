@@ -9,7 +9,7 @@
 <button onclick="logout()">로그 아웃</button>
 
 <a href = "/board/save">글 작성</a>
-<a href = "/board/">글 작성</a>
+<a href = "/board/">글 목록</a>
 
 </body>
 <script>

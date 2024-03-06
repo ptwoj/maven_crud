@@ -3,7 +3,7 @@
 
 <html>
 <head>
-    <title>list</title>
+    <title>boardList</title>
 </head>
 <body>
 <table>
@@ -21,7 +21,7 @@
                 <a href="/board?id=${board.id}">${board.boardTitle}</a>
             </td>
             <td>${board.boardWriter}</td>
-            <td>${board.boardCreatedTime}</td>
+            <td>${board.boardCreateTime}</td>
             <td>${board.boardHits}</td>
         </tr>
     </c:forEach>
