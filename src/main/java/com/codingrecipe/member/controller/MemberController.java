@@ -17,16 +17,16 @@ public class MemberController {
     private final MemberService memberService;
     @GetMapping("/save")
     public String saveForm() {
-        return "save";
+        return "saveMember";
     }
 
     @PostMapping("/save")
-    public String save(@ModelAttribute MemberDto memberDto) {
-        int saveResult = memberService.save(memberDto);
+    public String saveMember(@ModelAttribute MemberDto memberDto) {
+        int saveResult = memberService.saveMember(memberDto);
         if (saveResult > 0) {
             return "login";
         } else {
-            return "save";
+            return "saveMember";
         }
     }
 

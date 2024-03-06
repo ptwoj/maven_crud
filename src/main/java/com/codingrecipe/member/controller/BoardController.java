@@ -4,7 +4,10 @@ import com.codingrecipe.member.dto.BoardDto;
 import com.codingrecipe.member.service.BoardService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
@@ -13,7 +16,7 @@ public class BoardController {
     private final BoardService boardService;
     @GetMapping("/save")
     public String saveForm() {
-        return "save";
+        return "boardSave";
     }
 
     @PostMapping("/save")
@@ -22,8 +25,15 @@ public class BoardController {
         if (saveResult > 0) {
             return "redirect:/board";
         } else {
-            return "save";
+            return "boardSave";
         }
+    }
+
+    @GetMapping("/")
+    public String boardFindAll(Model model) {
+        List<BoardDto> boardDtoList = boardService.boardFindAll();
+        model.addAttribute("boardList", boardDtoList);
+        return "list";
     }
 
 }

@@ -12,7 +12,7 @@ import java.util.List;
 public class MemberService {
     private final MemberRepository memberRepository;
 
-    public int save(MemberDto memberDto) {
+    public int saveMember(MemberDto memberDto) {
         return memberRepository.save(memberDto);
     }
 
