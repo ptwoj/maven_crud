@@ -13,24 +13,24 @@ public class MemberRepository {
     private final SqlSessionTemplate sql;
     public int save(MemberDto memberDto) {
         System.out.println("memberDto + = " + memberDto);
-        return sql.insert("Member.save", memberDto);
+        return sql.insert("Member.memberSave", memberDto);
     }
 
     public MemberDto login(MemberDto memberDto) {
-        return sql.selectOne("Member.login", memberDto);
+        return sql.selectOne("Member.memberLogin", memberDto);
 
     }
 
     public List<MemberDto> findAll() {
-        return sql.selectList("Member.findAll");
+        return sql.selectList("Member.memberFindAll");
     }
 
     public MemberDto findById(Long id) {
-        return sql.selectOne("Member.findById", id);
+        return sql.selectOne("Member.memberFindById", id);
     }
 
     public void delete(Long id) {
-        sql.delete("Member.delete", id);
+        sql.delete("Member.memberDelete", id);
     }
 
     public MemberDto findByMemberEmail(String loginEmail) {
@@ -38,6 +38,6 @@ public class MemberRepository {
     }
 
     public int update(MemberDto memberDto) {
-        return sql.update("Member.update", memberDto);
+        return sql.update("Member.memberUpdate", memberDto);
     }
 }
