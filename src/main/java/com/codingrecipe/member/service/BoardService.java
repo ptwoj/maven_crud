@@ -18,4 +18,8 @@ public class BoardService {
     public List<BoardDto> boardFindAll() {
         return boardRepository.boardFindAll();
     }
+
+    public BoardDto boardFindById(Long id) {
+        return boardRepository.boardFindById(id);
+    }
 }

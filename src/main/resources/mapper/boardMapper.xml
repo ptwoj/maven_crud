@@ -4,14 +4,20 @@
 
 
 <mapper namespace="Board">
-<insert id = "boardSave" parameterType="board">
-    INSERT INTO board_table(boardWriter, boardTitle, boardContents)
-    VALUES(#{boardWriter}, #{boardTitle}, #{boardContents})
-</insert>
+    <insert id = "boardSave" parameterType="board">
+        INSERT INTO board_table(boardWriter, boardTitle, boardContents)
+        VALUES(#{boardWriter}, #{boardTitle}, #{boardContents})
+    </insert>
 
-<select id = "boardFindAll" resultType="board">
-    SELECT *
-    FROM board_table
-    ORDER BY id DESC
-</select>
+    <select id = "boardFindAll" resultType="board">
+        SELECT *
+        FROM board_table
+        ORDER BY id DESC
+    </select>
+
+    <select id = "boardFindById" parameterType = "Long" resultType = "board">
+        SELECT *
+        FROM board_table
+        WHERE id = #{id}
+    </select>
 </mapper>

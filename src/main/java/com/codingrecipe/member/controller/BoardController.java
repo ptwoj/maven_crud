@@ -36,4 +36,11 @@ public class BoardController {
         return "boardList";
     }
 
+    @GetMapping
+    public String boardFindById(@RequestParam("id") Long id, Model model) {
+        BoardDto boardDto = boardService.boardFindById(id);
+        model.addAttribute("board", boardDto);
+        return "boardDetail";
+    }
+
 }

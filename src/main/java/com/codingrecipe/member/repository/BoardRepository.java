@@ -18,4 +18,8 @@ public class BoardRepository {
     public List<BoardDto> boardFindAll() {
         return sql.selectList("Board.boardFindAll");
     }
+
+    public BoardDto boardFindById(Long id) {
+        return sql.selectOne("Board.boardFindById", id);
+    }
 }
